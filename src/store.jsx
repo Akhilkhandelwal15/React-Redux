@@ -43,3 +43,22 @@ console.log("updatedState:", store.getState());
 
 store.dispatch({type:"task/remove", payload:0});
 console.log("updatedState:", store.getState());
+
+// step 5: create action creators (we can write above code in step 4 like the below code):
+
+store.dispatch(addTask("Wake up at 7"));
+console.log("updatedState:", store.getState());
+
+store.dispatch(addTask("Sleep at 10"));
+console.log("updatedState:", store.getState());
+
+store.dispatch(removeTask(1));
+console.log("updatedState:", store.getState());
+
+function addTask(data){
+    return {type:"task/add", payload: data};
+}
+
+function removeTask(data){
+    return {type:"task/remove", payload: data};
+}
